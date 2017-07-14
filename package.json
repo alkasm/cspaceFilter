@@ -5,9 +5,8 @@
   "main": "schema.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "server": "nodemon ./server.js",
-    "api": "sudo docker-compose down && sudo docker-compose up"
+    "start": "sudo docker-compose down && sudo docker-compose up"
   },
   "author": "",
   "license": "ISC",

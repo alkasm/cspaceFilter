@@ -17,7 +17,6 @@ var passAsArgs = function (args) {
     args: JSON.stringify(args)
   }
 }
-
 // app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'output')));
 app.use(bodyParser.json());
