@@ -1,0 +1,9 @@
+version: '2'
+services:
+  api:
+    container_name: image-processing-api
+    build: .
+    ports:
+      - "${REACT_APP_ASSIGNED_PORT}:${REACT_APP_ASSIGNED_PORT}"
+    volumes:
+      - .:/usr/app
