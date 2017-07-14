@@ -13,13 +13,13 @@ var passAsArgs = function (args) {
   return {
     mode: 'text',
     pythonPath: '/usr/bin/python3',
-    scriptPath: process.cwd() + "/api",
+    scriptPath: process.cwd(),
     args: JSON.stringify(args)
   }
 }
 
 // app.use(express.static(path.join(__dirname, 'build')));
-app.use(express.static(path.join(__dirname, 'api', 'output')));
+app.use(express.static(path.join(__dirname, 'output')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -62,7 +62,7 @@ var fileNameGenerator = function () {
 }
 
 var filePath = function () {
-  return process.cwd()+'/api/';
+  return process.cwd()+'/';
 }
 
 const prepareArgs = (req, srcFileName, outputFileNames) => {
@@ -100,11 +100,12 @@ app.post('/upload', function (req, res) {
         console.log(err);
         return res.status(500).send(err);
       }
-      PythonShell.run('/cspaceIO.py', passAsArgs(apiArgs), function (err, results) {
+      PythonShell.run('./cspaceIO.py', passAsArgs(apiArgs), function (err, results) {
         try {
           if (err) throw err;
         }
         catch (e) {
+          console.log('errored: ');
           console.error(e);
         }
         // results is an array consisting of messages collected during execution

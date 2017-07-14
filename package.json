@@ -5,7 +5,9 @@
   "main": "schema.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon ./server.js",
+    "api": "sudo docker-compose down && sudo docker-compose up"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "express": "^4.15.3",
     "express-fileupload": "^0.1.4",
     "fs": "0.0.1-security",
+    "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "python-shell": "^0.4.0",
     "uuid": "^3.1.0"
