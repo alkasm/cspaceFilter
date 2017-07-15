@@ -47,22 +47,15 @@ def __cspaceBounds(cspace, slider_pos):
         slider_pos -- the positions of the thresholding trackbars; length 6 list
 
     Returns:
-        lowerb -- np.array containing the lower bounds for each channel threshold
-        upperb -- np.array containing the upper bounds for each channel threshold
+        lowerb -- list containing the lower bounds for each channel threshold
+        upperb -- list containing the upper bounds for each channel threshold
     """
 
-    min_dict = {3: np.array([0,1,1])}
-    max_dict = {1: np.array([180,255,255]), 2: np.array([180,255,255])}
-
-    mins = min_dict.get(cspace, np.array([0,0,0]))
-    maxs = max_dict.get(cspace, np.array([255,255,255]))
-
-    lowerb = np.array([slider_pos[0], slider_pos[2], slider_pos[4]])
-    upperb = np.array([slider_pos[1], slider_pos[3], slider_pos[5]])
-    lowerb = lowerb * (maxs-mins) / 100 + mins # put in the correct range
-    upperb = upperb * (maxs-mins) / 100 + mins
-
-    if cspace is 7: lowerb, upperb = lowerb[0], upperb[0]
+    if cspace is 7: 
+        lowerb, upperb = slider_pos[0], slider_pos[1]
+    else:
+        lowerb = np.array([slider_pos[0], slider_pos[2], slider_pos[4]])
+        upperb = np.array([slider_pos[1], slider_pos[3], slider_pos[5]])
 
     return lowerb, upperb
 
