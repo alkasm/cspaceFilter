@@ -46,15 +46,14 @@ def __checkcspace(cspaceLabel):
 if __name__ == "__main__":
     """To be ran from command line
 
-    Usage example: 
-    python3 cspaceIO.py '{"paths":{"srcPath":"input/test.jpg","maskPath":"output/test.png","maskedPath":"output/test2.png"},"cspaceLabel":"BGR","sliderPos":[50,100,50,100,50,100]}'
+    Usage example: python3 cspaceIO.py '{"paths":{"srcPath":"input/test.jpg","maskPath":"output/test.png","maskedPath":"output/test2.png"},"cspaceLabel":"BGR","sliderPos":[127,255,127,255,127,255]}'
     """
 
     parser = argparse.ArgumentParser(description='Color threshold an image in any colorspace \
         and save it to a file.')
 
     parser.add_argument('jsonIn',
-        help='JSON containing imgPath (str), maskPath (str), maskedPath (str), cspaceLabel (str), and sliderPos (6-long int list[])')
+        help='JSON containing paths (dict {imgPath (str), maskPath (str), maskedPath (str)}), cspaceLabel (str), and sliderPos (6-long int list[])')
 
     args = parser.parse_args()
 
