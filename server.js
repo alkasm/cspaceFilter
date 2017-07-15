@@ -94,6 +94,7 @@ app.post('/upload', function (req, res) {
     let apiArgs = prepareArgs(req, srcFileName, output)
     let uploadedImage = req.files.uploadedImage;
     apiArgs.cspaceLabel = apiArgs.cspaceLabel || "BGR";
+    console.log(req.body);
     uploadedImage.mv(apiArgs.paths.srcPath, function(err) {
       if (err) {
         console.log(err);
