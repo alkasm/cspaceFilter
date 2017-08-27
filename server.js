@@ -77,10 +77,10 @@ const prepareArgs = (req, srcFileName, outputFileNames) => {
       //  || 0 for python json parsing
       parseInt(params.c1min),
       parseInt(params.c1max),
-      parseInt(params.c2min) || 0,
-      parseInt(params.c2max) || 0,
-      parseInt(params.c3min) || 0,
-      parseInt(params.c3max) || 0
+      parseInt(params.c2min),
+      parseInt(params.c2max),
+      parseInt(params.c3min),
+      parseInt(params.c3max)
     ]
   }
 }
