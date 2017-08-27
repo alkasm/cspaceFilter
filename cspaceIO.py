@@ -14,8 +14,7 @@ __email__ = "ar@reynoldsalexander.com"
 def _sanitize(filename):
 
     sanitized = "".join(
-        [c for c in filename
-         if c.isalpha() or c.isdigit() or c in ['.', '_', '-', '/']]).rstrip()
+        [c for c in filename if c.isalpha() or c.isdigit() or c in '._-/'])
 
     return sanitized
 
