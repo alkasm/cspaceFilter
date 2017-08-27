@@ -2,10 +2,6 @@ import cv2
 import numpy as np
 
 
-__author__ = "Alexander Reynolds"
-__email__ = "ar@reynoldsalexander.com"
-
-
 """Private helper functions"""
 
 
@@ -48,8 +44,7 @@ def _cspaceBounds(cspaceLabel, slider_pos):
         lowerb -- list containing the lower bounds for each channel threshold
         upperb -- list containing the upper bounds for each channel threshold
     """
-
-    if cspaceLabel is 'Grayscale':
+    if cspaceLabel == 'Grayscale':
         lowerb, upperb = slider_pos[0], slider_pos[1]
     else:
         lowerb = np.array([slider_pos[0], slider_pos[2], slider_pos[4]])
