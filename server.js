@@ -74,12 +74,13 @@ const prepareArgs = (req, srcFileName, outputFileNames) => {
       maskPath: saveFilePath(outputFileNames.mask)
     },
     sliderPos: [
+      //  || 0 for python json parsing
       parseInt(params.c1min),
       parseInt(params.c1max),
-      parseInt(params.c2min),
-      parseInt(params.c2max),
-      parseInt(params.c3min),
-      parseInt(params.c3max)
+      parseInt(params.c2min) || 0,
+      parseInt(params.c2max) || 0,
+      parseInt(params.c3min) || 0,
+      parseInt(params.c3max) || 0
     ]
   }
 }
@@ -93,8 +94,8 @@ app.post('/upload', function (req, res) {
     let output = {mask: maskPath, masked: maskedPath}
     let apiArgs = prepareArgs(req, srcFileName, output)
     let uploadedImage = req.files.uploadedImage;
+    console.log(passAsArgs(apiArgs));
     apiArgs.cspaceLabel = apiArgs.cspaceLabel || "BGR";
-    console.log(req.body);
     uploadedImage.mv(apiArgs.paths.srcPath, function(err) {
       if (err) {
         console.log(err);
