@@ -119,8 +119,6 @@ app.post('/upload', function (req, res) {
           console.log('errored: ');
           console.error(e);
         }
-        // results is an array consisting of messages collected during execution
-        fs.unlinkSync(apiArgs.paths.srcPath);
         res.json(output);
       });
     });
