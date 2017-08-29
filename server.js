@@ -87,14 +87,13 @@ const prepareArgs = (req, srcFileName, outputFileNames) => {
 }
 
 const startFileCleanupProcess = () => {
-  const fiveMinutes = 300,000;
+  const fiveMinutes = 300000;
   const thirtyMinutes = 1800;
   setInterval(() => {
     findRemoveSync(outputFilePath(), {age: {seconds: thirtyMinutes}, extensions: '.jpg'});
     findRemoveSync(inputFilePath(), {age: {seconds: thirtyMinutes}, extensions: '.jpg'});
   }, fiveMinutes);
 };
-startFileCleanupProcess();
 
 
 app.post('/upload', function (req, res) {
@@ -133,4 +132,5 @@ app.post('/upload', function (req, res) {
 
 app.listen(PORT, function () {
   console.log(`Example app listening on port ${PORT}!`)
+  startFileCleanupProcess();
 });
