@@ -14,6 +14,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-fileupload": "^0.1.4",
+    "find-remove": "^1.0.1",
     "fs": "0.0.1-security",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
